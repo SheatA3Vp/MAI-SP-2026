@@ -2,6 +2,9 @@
 *.d
 
 .idea
+.vscode
+.cache
+build*
 cmake-build-*
 *.txt
 !CMakeLists.txt
