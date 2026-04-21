@@ -1,6 +1,9 @@
 #include <not_implemented.h>
 #include "../include/allocator_boundary_tags.h"
 
+
+// -=-=-=-=-=-=-=-=-=-=-=- CONSTRUCTORS & DESTRUCTORS -=-=-=-=-=-=-=-=-=-=-=-
+
 allocator_boundary_tags::~allocator_boundary_tags()
 {
     throw not_implemented("allocator_boundary_tags::~allocator_boundary_tags()", "your code should be here...");
@@ -18,6 +21,15 @@ allocator_boundary_tags &allocator_boundary_tags::operator=(
     throw not_implemented("allocator_boundary_tags &allocator_boundary_tags::operator=(allocator_boundary_tags &&) noexcept", "your code should be here...");
 }
 
+allocator_boundary_tags::allocator_boundary_tags(const allocator_boundary_tags &other)
+{
+    throw not_implemented("allocator_boundary_tags::allocator_boundary_tags(const allocator_boundary_tags &other)", "your code should be here...");
+}
+
+allocator_boundary_tags &allocator_boundary_tags::operator=(const allocator_boundary_tags &other)
+{
+    throw not_implemented("allocator_boundary_tags &allocator_boundary_tags::operator=(const allocator_boundary_tags &other)", "your code should be here...");
+}
 
 /** If parent_allocator* == nullptr you should use std::pmr::get_default_resource()
  */
@@ -28,6 +40,9 @@ allocator_boundary_tags::allocator_boundary_tags(
 {
     throw not_implemented("allocator_boundary_tags::allocator_boundary_tags(size_t,std::pmr::memory_resource *,logger *,allocator_with_fit_mode::fit_mode)", "your code should be here...");
 }
+
+
+// -=-=-=-=-=-=-=-=-=-=-=- ALLOCATION & DEALLOCATION -=-=-=-=-=-=-=-=-=-=-=-
 
 [[nodiscard]] void *allocator_boundary_tags::do_allocate_sm(
     size_t size)
@@ -48,10 +63,25 @@ inline void allocator_boundary_tags::set_fit_mode(
 }
 
 
+// -=-=-=-=-=-=-=-=-=-=-=- INFO & UTILITIES -=-=-=-=-=-=-=-=-=-=-=-
+
 std::vector<allocator_test_utils::block_info> allocator_boundary_tags::get_blocks_info() const
 {
     throw not_implemented("std::vector<allocator_test_utils::block_info> allocator_boundary_tags::get_blocks_info() const", "your code should be here...");
 }
+
+std::vector<allocator_test_utils::block_info> allocator_boundary_tags::get_blocks_info_inner() const
+{
+    throw not_implemented("std::vector<allocator_test_utils::block_info> allocator_boundary_tags::get_blocks_info_inner() const", "your code should be here...");
+}
+
+bool allocator_boundary_tags::do_is_equal(const std::pmr::memory_resource &other) const noexcept
+{
+    throw not_implemented("bool allocator_boundary_tags::do_is_equal(const std::pmr::memory_resource &other) const noexcept", "your code should be here...");
+}
+
+
+// -=-=-=-=-=-=-=-=-=-=-=- ITERATOR ACCESS -=-=-=-=-=-=-=-=-=-=-=-
 
 allocator_boundary_tags::boundary_iterator allocator_boundary_tags::begin() const noexcept
 {
@@ -63,24 +93,17 @@ allocator_boundary_tags::boundary_iterator allocator_boundary_tags::end() const 
     throw not_implemented("allocator_boundary_tags::boundary_iterator allocator_boundary_tags::end() const noexcept", "your code should be here...");
 }
 
-std::vector<allocator_test_utils::block_info> allocator_boundary_tags::get_blocks_info_inner() const
+
+// -=-=-=-=-=-=-=-=-=-=-=- BOUNDARY ITERATOR IMPLEMENTATION -=-=-=-=-=-=-=-=-=-=-=-
+
+allocator_boundary_tags::boundary_iterator::boundary_iterator()
 {
-    throw not_implemented("std::vector<allocator_test_utils::block_info> allocator_boundary_tags::get_blocks_info_inner() const", "your code should be here...");
+    throw not_implemented("allocator_boundary_tags::boundary_iterator::boundary_iterator()", "your code should be here...");
 }
 
-allocator_boundary_tags::allocator_boundary_tags(const allocator_boundary_tags &other)
+allocator_boundary_tags::boundary_iterator::boundary_iterator(void *trusted)
 {
-    throw not_implemented("allocator_boundary_tags::allocator_boundary_tags(const allocator_boundary_tags &other)", "your code should be here...");
-}
-
-allocator_boundary_tags &allocator_boundary_tags::operator=(const allocator_boundary_tags &other)
-{
-    throw not_implemented("allocator_boundary_tags &allocator_boundary_tags::operator=(const allocator_boundary_tags &other)", "your code should be here...");
-}
-
-bool allocator_boundary_tags::do_is_equal(const std::pmr::memory_resource &other) const noexcept
-{
-    throw not_implemented("bool allocator_boundary_tags::do_is_equal(const std::pmr::memory_resource &other) const noexcept", "your code should be here...");
+    throw not_implemented("allocator_boundary_tags::boundary_iterator::boundary_iterator(void *)", "your code should be here...");
 }
 
 bool allocator_boundary_tags::boundary_iterator::operator==(
@@ -128,16 +151,6 @@ bool allocator_boundary_tags::boundary_iterator::occupied() const noexcept
 void* allocator_boundary_tags::boundary_iterator::operator*() const noexcept
 {
     throw not_implemented("void* allocator_boundary_tags::boundary_iterator::operator*() const noexcept", "your code should be here...");
-}
-
-allocator_boundary_tags::boundary_iterator::boundary_iterator()
-{
-    throw not_implemented("allocator_boundary_tags::boundary_iterator::boundary_iterator()", "your code should be here...");
-}
-
-allocator_boundary_tags::boundary_iterator::boundary_iterator(void *trusted)
-{
-    throw not_implemented("allocator_boundary_tags::boundary_iterator::boundary_iterator(void *)", "your code should be here...");
 }
 
 void *allocator_boundary_tags::boundary_iterator::get_ptr() const noexcept
